@@ -1,0 +1,20 @@
+package com.thoughtworks.movierental;
+
+class TextStatement {
+  public String create(Rentals rentals, String customerName) {
+    String result = "Rental Record for " + customerName + "\n";
+
+    for (Rental rental : rentals) {
+      //show figures for this rental
+      result += "\t" + rental.getMovie().getTitle() + "\t" +
+          String.valueOf(rental.amount()) + "\n";
+
+    }
+
+    //add footer lines result
+    result += "Amount owed is " + String.valueOf(rentals.totalAmount()) + "\n";
+    result += "You earned " + String.valueOf(rentals.totalFrequentRenterPoints())
+        + " frequent renter points";
+    return result;
+  }
+}
